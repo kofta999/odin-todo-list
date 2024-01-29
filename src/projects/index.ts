@@ -1,3 +1,4 @@
+import "./styles.css";
 import { Todo } from "../todos";
 
 export interface IProject {

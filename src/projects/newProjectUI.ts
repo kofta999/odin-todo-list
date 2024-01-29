@@ -4,10 +4,14 @@ import ProjectUI from "./projectUI";
 
 export default function NewProjectUI() {
   const dialog = document.createElement("dialog");
+  dialog.classList.add("modal");
+  dialog.id = "newProject";
   const form = document.createElement("form");
+  form.classList.add("modal-box", "flex", "flex-col", "gap-5");
   form.innerHTML = `
+  <h1>Add Project:</h1>
   <input placeholder="Project name" required type="name" id="name" name="name" />
-  <button type="submit">Add</button>
+  <button class="btn btn-neutral" type="submit">Add</button>
   `;
 
   dialog.addEventListener("submit", (e) => {

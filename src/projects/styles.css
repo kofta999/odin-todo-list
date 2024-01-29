@@ -1,0 +1,19 @@
+#projects {
+  @apply flex flex-col gap-4;
+}
+
+#projects > button {
+  @apply btn btn-neutral text-left;
+}
+
+#projects > .active {
+  @apply btn-success;
+}
+
+#addProject {
+  @apply btn rounded-full w-64 mt-20
+}
+
+#newProject h1 {
+  @apply text-4xl font-bold text-left mb-4;
+}

@@ -13,15 +13,18 @@ body {
   padding: 2rem;
   text-align: center;
   display: grid;
-  grid-template-columns: 0.25fr 0.75fr;
+  grid-template-columns: 0.25fr 1fr;
+  gap: 50px;
+}
+
+#header {
+  grid-column: 1 / -1;
+}
+
+#header > h1 {
+  @apply text-6xl font-bold;
 }
 
 input {
   @apply input input-bordered;
-}
-
-
-
-.active {
-  background-color: red;
 }

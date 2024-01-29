@@ -10,15 +10,22 @@ export default function App() {
   const newProjectUI = NewProjectUI();
   const newTodoUI = NewTodoUI();
 
+  const header = document.createElement("div");
+  const title = document.createElement("h1");
+  title.textContent = "Todos";
+  header.id = "header";
+
+  header.appendChild(title);
+
   const defaultProject = new Project();
-  const t1 = new Todo("Todo1", "description of todo 1", new Date(2024, 1, 15));
-  const t2 = new Todo("Todo2", "description of todo 1", new Date(2024, 0, 13));
+  const t1 = new Todo("Todo1", new Date(2024, 1, 15));
+  const t2 = new Todo("Todo2", new Date(2024, 0, 13));
 
   defaultProject.addToList(t1);
   defaultProject.addToList(t2);
 
   State.addProjectToList(defaultProject);
-  State.addProjectToList(new Project("zby"));
+  State.addProjectToList(new Project("Project 2"));
 
   const addProjectBtn = document.createElement("button");
   addProjectBtn.id = "addProject";
@@ -42,5 +49,5 @@ export default function App() {
   main.id = "main";
   main.append(TodoListUI([t1, t2], defaultProject), addTodoButton, newTodoUI);
 
-  return [sideBar, main];
+  return [header, sideBar, main];
 }
