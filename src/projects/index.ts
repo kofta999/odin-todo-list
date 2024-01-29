@@ -20,5 +20,6 @@ export class Project implements IProject {
     if (!idx) return;
 
     this.todos.splice(idx, 1);
+    State.addProjectToList(this);
   }
 }
