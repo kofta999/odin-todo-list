@@ -1,0 +1,46 @@
+#todos {
+  @apply flex gap-10 flex-col;
+}
+
+#deleteTodo {
+  @apply btn btn-error;
+}
+
+#markTodo {
+  @apply btn btn-accent;
+}
+
+#addTodo {
+  @apply btn rounded-full w-96 mt-32;
+}
+
+.todo {
+  @apply card card-body flex justify-between flex-row items-center bg-base-200;
+}
+
+.todo h2 {
+  @apply card-title text-4xl;
+}
+
+.todo p {
+  @apply text-2xl;
+}
+
+.priority {
+  @apply rounded-full w-4 h-20 mr-10;
+}
+.low {
+  @apply bg-success;
+}
+
+.medium {
+  @apply bg-warning;
+}
+
+.high {
+  @apply bg-error;
+}
+
+#newTodo h1 {
+  @apply text-4xl font-bold text-left mb-4;
+}

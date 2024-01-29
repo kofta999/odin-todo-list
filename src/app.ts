@@ -11,8 +11,8 @@ export default function App() {
   const newTodoUI = NewTodoUI();
 
   const defaultProject = new Project();
-  const t1 = new Todo("t1", "t1", new Date());
-  const t2 = new Todo("t2", "t2", new Date());
+  const t1 = new Todo("Todo1", "description of todo 1", new Date(2024, 1, 15));
+  const t2 = new Todo("Todo2", "description of todo 1", new Date(2024, 0, 13));
 
   defaultProject.addToList(t1);
   defaultProject.addToList(t2);
@@ -30,12 +30,17 @@ export default function App() {
   addTodoButton.textContent = "Add Todo";
   addTodoButton.addEventListener("click", () => newTodoUI.showModal());
 
-  return [
+  const sideBar = document.createElement("div");
+  sideBar.id = "sidebar";
+  sideBar.append(
     ProjectListUI(State.getProjectsList()),
-    TodoListUI([t1, t2], defaultProject),
     addProjectBtn,
-    addTodoButton,
-    newProjectUI,
-    newTodoUI,
-  ];
+    newProjectUI
+  );
+
+  const main = document.createElement("div");
+  main.id = "main";
+  main.append(TodoListUI([t1, t2], defaultProject), addTodoButton, newTodoUI);
+
+  return [sideBar, main];
 }

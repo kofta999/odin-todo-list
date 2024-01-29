@@ -4,11 +4,15 @@ import TodoUI from "./todoUI";
 
 export default function NewTodoUI() {
   const dialog = document.createElement("dialog");
+  dialog.classList.add("modal");
+  dialog.id = "newTodo";
   const form = document.createElement("form");
+  form.classList.add("modal-box", "flex", "flex-col", "gap-5");
   form.innerHTML = `
+  <h1>Add Todo:</h1>
   <input placeholder="Todo name" required type="text" id="name" name="name" />
   <input placeholder="Description" required type="text" id="description" name="description" />
-  <button type="submit">Add</button>
+  <button class="btn btn-neutral" type="submit">Add</button>
   `;
 
   dialog.addEventListener("submit", (e) => {

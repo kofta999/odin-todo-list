@@ -5,6 +5,11 @@ import { State } from "../state";
 export default function ProjectUI(project: Project) {
   const projectBtn = document.createElement("button");
   projectBtn.textContent = project.name;
+  projectBtn.id = project.name.toLowerCase();
+  if (project.name === "Default") {
+    State.setActiveButton(projectBtn);
+    projectBtn.classList.add("active");
+  }
 
   projectBtn.addEventListener("click", () => {
     const activeButton = State.getActiveButton();
