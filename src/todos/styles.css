@@ -7,7 +7,7 @@
 }
 
 #markTodo {
-  @apply btn btn-accent;
+  @apply btn btn-accent w-32;
 }
 
 #addTodo {

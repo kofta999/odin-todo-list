@@ -5,11 +5,18 @@ import { Project } from "../projects";
 export default function TodoUI(todo: Todo, project: Project) {
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
+  // const todoPriority = document.createElement("div");
+  const todoName = document.createElement("h2");
+  const todoDate = document.createElement("p");
+
+  todoName.textContent = todo.name;
+  todoDate.textContent = formatDistanceToNow(todo.dueDate, { addSuffix: true });
+
   todoDiv.innerHTML = `
   <div class="priority ${todo.priority}"></div>
-  <h2>${todo.name}</h2>
-  <p>${formatDistanceToNow(todo.dueDate, { addSuffix: true })}</p>
   `;
+
+  todoDiv.append(todoName, todoDate);
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
@@ -22,7 +29,12 @@ export default function TodoUI(todo: Todo, project: Project) {
   const markDoneButton = document.createElement("button");
   markDoneButton.id = "markTodo";
   markDoneButton.textContent = "Mark as Done";
-  markDoneButton.addEventListener("click", () => todo.markAsCompleted());
+  markDoneButton.addEventListener("click", () => {
+    todo.markAsCompleted();
+    markDoneButton.textContent = markDoneButton.textContent === "Done" ? "Mark as Done" : "Done"
+    todoName.classList.toggle("line-through");
+    todoDate.classList.toggle("line-through");
+  });
 
   todoDiv.append(deleteButton, markDoneButton);
 
