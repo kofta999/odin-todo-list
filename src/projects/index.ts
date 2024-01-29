@@ -1,5 +1,6 @@
 import "./styles.css";
 import { Todo } from "../todos";
+import { State } from "../state";
 
 export interface IProject {
   name: string;
@@ -11,6 +12,7 @@ export class Project implements IProject {
 
   addToList(todo: Todo) {
     this.todos.push(todo);
+    State.addProjectToList(this);
   }
 
   removeFromList(todo: Todo) {
